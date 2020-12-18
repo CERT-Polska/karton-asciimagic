@@ -3,9 +3,9 @@ import logging
 
 from karton.core import Karton, Resource, Task
 
+from .__version__ import __version__
 from .asciiclassifier import AsciiClassifier
 from .decoders import Decoder
-from .__version__ import __version__
 
 
 class AsciiMagic(Karton):
