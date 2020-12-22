@@ -1,6 +1,6 @@
 import base64
 
-from .checks import AsciiType, clean_base64
+from .asciiclassifier import AsciiType, clean_base64
 
 
 def decode_base64(r_data, a_type):
