@@ -3,13 +3,14 @@
 Extracts next stages of various ASCII files containind malware, for example hex, base64, etc.
 
 Author: CERT.pl
+
 Maintainers: ola, msm, nazywam
 
 **Consumes:**
 ```json
 {
     "type": "sample",
-    "stage": "recognized"
+    "stage": "recognized",
     "kind": "ascii"
 } 
 ```
