@@ -1,6 +1,6 @@
 # AsciiMagic karton service
 
-Extracts next stages of various ASCII files containind malware, for example hex, base64, etc.
+Extracts next stages of various ASCII files that contain malware, for example hex, base64, etc.
 
 **Author**: CERT.pl
 
