@@ -13,7 +13,10 @@ exec(version_path.read_text(), version_info)
 setup(
     name="karton-asciimagic",
     version=version_info["__version__"],
+    url="https://github.com/CERT-Polska/karton-asciimagic/",
     description="Various encoders for ascii-encoded executables for Karton framework",
+    long_description=open("README.md", "r").read(),
+    long_description_content_type="text/markdown",
     namespace_packages=["karton"],
     packages=["karton.asciimagic"],
     install_requires=open("requirements.txt").read().splitlines(),
