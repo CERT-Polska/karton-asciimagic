@@ -29,7 +29,7 @@ def is_plain_base64(data):
 
 
 def is_plain_hex(data):
-    return re.match(rb"^([0-9A-Fa-f]{2})+$", data)
+    return re.fullmatch(rb"([0-9A-Fa-f]{2})+", data)
 
 
 def clean_base64(data):
