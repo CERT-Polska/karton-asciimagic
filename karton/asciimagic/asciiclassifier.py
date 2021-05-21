@@ -10,6 +10,7 @@ class AsciiType(Enum):
     BASE64_PLAIN = auto()
     BASE64_OBFUSCATED = auto()
     BASE64_REVERSED = auto()
+    HEX_PLAIN = auto()
     HEX_WITH_SLASH = auto()
     HEX_WITH_DASH = auto()
     BINARY = auto()
@@ -25,6 +26,10 @@ def is_plain_base64(data):
         re.match(b"([A-Za-z0-9+/]{4}){3,}([A-Za-z0-9+/]{2}==|[A-Za-z0-9+/]{3}=)?", data)
         and not len(data) % 4
     )
+
+
+def is_plain_hex(data):
+    return re.fullmatch(rb"([0-9A-Fa-f]{2})+", data)
 
 
 def clean_base64(data):
@@ -94,6 +99,8 @@ class AsciiClassifier:
             self.verdict = AsciiType.HEX_WITH_SLASH
         elif is_comma_separated_ascii(self.raw_data, AsciiType.HEX_WITH_DASH):
             self.verdict = AsciiType.HEX_WITH_DASH
+        elif is_plain_hex(self.raw_data):
+            self.verdict = AsciiType.HEX_PLAIN
         elif is_plain_base64(self.raw_data):
             self.verdict = AsciiType.BASE64_PLAIN
         elif is_reversed_base64(self.raw_data):

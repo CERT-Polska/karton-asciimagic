@@ -1,4 +1,5 @@
 import base64
+import binascii
 
 from .asciiclassifier import AsciiType, clean_base64
 
@@ -47,6 +48,8 @@ class Decoder:
             self.decoded = decode_decimal_ascii(self.raw_data)
         elif self.ascii_type in [AsciiType.HEX_WITH_SLASH, AsciiType.HEX_WITH_DASH]:
             self.decoded = decode_hex_ascii(self.raw_data, self.ascii_type)
+        elif self.ascii_type == AsciiType.HEX_PLAIN:
+            self.decoded = binascii.unhexlify(self.raw_data)
         elif self.ascii_type in [
             AsciiType.BASE64_PLAIN,
             AsciiType.BASE64_REVERSED,
