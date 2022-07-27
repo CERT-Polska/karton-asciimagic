@@ -18,7 +18,7 @@ class AsciiMagic(Karton):
     filters = [{"type": "sample", "stage": "recognized", "kind": "ascii"}]
     persistent = True
 
-    def process(self, task: Task) -> None:  # type: ignore
+    def process(self, task: Task) -> None:
         sample = task.get_resource("sample")
         ascii_content = sample.content
 
